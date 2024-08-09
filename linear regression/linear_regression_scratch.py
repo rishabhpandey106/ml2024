@@ -3,15 +3,15 @@ import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.metrics import mean_squared_error
 
-breast_cancer = datasets.load_breast_cancer()
+diabetes = datasets.load_diabetes()
 
-breast_cancer_X  =  breast_cancer.data[:,np.newaxis,0] # radius
+diabetes_X  =  diabetes.data[:,np.newaxis,2] # bmi
 
-breast_cancer_X_train = breast_cancer_X[:-50]
-breast_cancer_X_test = breast_cancer_X[-20:]
+diabetes_X_train = diabetes_X[:-50]
+diabetes_X_test = diabetes_X[-20:]
 
-breast_cancer_y_train = breast_cancer.target[:-50]
-breast_cancer_y_test = breast_cancer.target[-20:]
+diabetes_y_train = diabetes.target[:-50]
+diabetes_y_test = diabetes.target[-20:]
 
 def linear_regression(X, y):
     n = len(X)
@@ -24,24 +24,24 @@ def linear_regression(X, y):
     b = y.mean() - m * X.mean()
     return m, b
 
-m, b = linear_regression(breast_cancer_X_train, breast_cancer_y_train)
+m, b = linear_regression(diabetes_X_train, diabetes_y_train)
 
 def predict(X, m, b):
     return m * X + b
 
 # Predict on the test set
-breast_cancer_y_pred = predict(breast_cancer_X_test, m, b)
+diabetes_y_pred = predict(diabetes_X_test, m, b)
 
 # def mean_squared_error(y_true, y_pred):
 #     return np.average((y_true - y_pred) ** 2)
 
-# mse = mean_squared_error(breast_cancer_y_test, breast_cancer_y_pred)
-print("Mean squared error is:", mean_squared_error(breast_cancer_y_test, breast_cancer_y_pred))
+# mse = mean_squared_error(diabetes_y_test, diabetes_y_pred)
+print("Mean squared error is:", mean_squared_error(diabetes_y_test, diabetes_y_pred))
 print("Weights:  ",  m)
 print("Intercept:  ",  b)
 
-plt.scatter(breast_cancer_X_test, breast_cancer_y_test, color='black')
-plt.plot(breast_cancer_X_test, breast_cancer_y_pred, color='blue')
+plt.scatter(diabetes_X_test, diabetes_y_test, color='black')
+plt.plot(diabetes_X_test, diabetes_y_pred, color='blue')
 plt.xlabel('Radius')
 plt.ylabel('Target')
 plt.show()
