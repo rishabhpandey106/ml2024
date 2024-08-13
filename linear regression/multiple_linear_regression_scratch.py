@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, r2_score
 
 diabetes = datasets.load_diabetes()
 
@@ -35,4 +35,5 @@ diabetes_y_pred = predict(diabetes_X_test, intercept, cofficients)
 print("Mean squared error is:", mean_squared_error(diabetes_y_test, diabetes_y_pred))
 print("Weights:  ",  cofficients)
 print("Intercept:  ",  intercept)
+print("Score ", r2_score(diabetes_y_test, diabetes_y_pred))
 
