@@ -48,3 +48,9 @@ print("Weights:  ",  coefficients)
 print("Intercept:  ",  intercept)
 print("Score ", r2_score(diabetes_y_test, diabetes_y_pred))
 
+# used when large dataset, non convex function
+# faster than batch_gdr but when epochs are same batch_gdr can be faster as for 1 epoch we calculate only 1 time, but in sgdr we calculate 1 * X.shape[0] times
+# used alot
+# batch_gdr may find local minima instead of global minima in case of large dataset
+# batch_gdr uses a lot of ram in case of large dataset, so ram intensive method
+# batch_gdr can be used when dataset is small and epochs are large
