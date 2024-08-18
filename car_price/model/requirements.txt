@@ -3,4 +3,3 @@ Flask-Cors
 numpy
 pandas
 scikit-learn
-Werkzeug
