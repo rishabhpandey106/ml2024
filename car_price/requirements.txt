@@ -1,1 +1,5 @@
 Flask
+Flask-Cors
+numpy
+pandas
+scikit-learn
