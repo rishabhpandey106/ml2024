@@ -6,8 +6,8 @@ import pandas as pd
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
-car = pd.read_csv('car_price\cleaned_data.csv')
-model = pickle.load(open('car_price\LinearRegressionModel.pkl', 'rb'))
+car = pd.read_csv('car_price\model\cleaned_data.csv')
+model = pickle.load(open('car_price\model\LinearRegressionModel.pkl', 'rb'))
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
