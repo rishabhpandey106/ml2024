@@ -25,7 +25,7 @@ export default function Home() {
   const [prediction, setPrediction] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/data')
+    fetch('https://ml2024.onrender.com/api/data')
       .then(response => response.json())
       .then(data => {
         setData(data);
@@ -57,7 +57,7 @@ export default function Home() {
   const handleSubmit = (e:any) => {
     e.preventDefault();
     console.log(formData)
-    fetch('http://127.0.0.1:5000/api/predict', {
+    fetch('https://ml2024.onrender.com/api/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

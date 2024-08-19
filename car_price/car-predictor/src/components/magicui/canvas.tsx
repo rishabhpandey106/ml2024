@@ -40,6 +40,7 @@ const Confetti = forwardRef<ConfettiRef, Props>((props, ref) => {
     children,
     ...rest
   } = props;
+  Confetti.displayName = "Confetti";
   const instanceRef = useRef<ConfettiInstance | null>(null); // confetti instance
 
   const canvasRef = useCallback(
