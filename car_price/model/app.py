@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "https://ml2024-iplmdsdo5-rishabhpandey106s-projects.vercel.app"}})
+cors = CORS(app, resources={r"/*": {"origins": "https://ml2024.vercel.app/"}})
 car = pd.read_csv('cleaned_data.csv')
 model = pickle.load(open('LinearRegressionModel.pkl', 'rb'))
 
